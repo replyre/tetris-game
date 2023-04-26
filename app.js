@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const width =10; 
     const scoreDisplay =document.querySelector("#score");
     const startBtn = document.querySelector("#start-button"); 
+    const pauseBtn = document.querySelector("#pause-button"); 
+    // const control_button= document.getElementById("cont_button")
     let nextRand=0
     let timerId
     let score =0
@@ -141,7 +143,6 @@ function moveLeft(){
 }
 
 // move the tetromino right, unless is at edge or there is a blockage 
-
 function moveRight(){
     undraw();
     const isAtRightEdge = current.some(index => (currpos +index) % width ===width-1);
@@ -168,18 +169,18 @@ function rotate(){
 //show up-next tet in mini grid
 
 const mingrid=document.querySelectorAll('.mini-grid div')
-const disW= 4
+const disW= 5
 const disInd=0
 
 
 // the tet without rotation
 
 const nextTet= [
-    [1, disW+1,disW*2+1,2], //ltet
-    [0,1,disW+1,disW+2], //ztet
-    [0,1, disW,disW+1], //stet
-    [0,1,2,disW+1], // ttet   
-    [1,disW+1,disW*2+1,disW*3+1] //itet
+    [disW+1, disW*2+1,disW*3+1,2+disW], //ltet
+    [1+disW,disW+2,disW*2+2,disW*2+3], //ztet
+    [disW+1,disW+2, disW*2+1,disW*2+2], //stet
+    [1+disW,2+disW,3+disW,disW*2+2], // ttet   
+    [2,disW+2,disW*2+2,disW*3+2] //itet
 ]
 
 
@@ -197,19 +198,31 @@ function disShape(){
     })
 }
 
+document.querySelectorAll('.cont_button').forEach(item => {
+    item.addEventListener('click', e => {
+        // console.log(`clicked ${e.target.value}`)
+        if(e.target.value==='down') moveDown();
+            if(e.target.value==='up') rotate();
+            if(e.target.value==='left') moveLeft();
+            if(e.target.value==='right') moveRight();
+    })
+  })
 
 startBtn.addEventListener('click',()=>{
-    if(timerId){
-        clearInterval(timerId)
-        timerId=null
-    }else{
+    
         draw()
         timerId=setInterval( moveDown, 1000)
         nextRand=Math.floor(Math.random()*theTet.length)
-        
-    }
 
 })
+
+pauseBtn.addEventListener('click',()=>{
+    if(timerId){
+        clearInterval(timerId)
+        timerId=null}
+
+})
+
 
 //add score
 

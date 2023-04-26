@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <script src="app.js" charset="utf-8"></script>
+   
+    <!-- <script type="text/javascript" src="app.js"></script> -->
     <link rel="stylesheet" href="style.css"></link>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tetris</title>
@@ -12,6 +13,7 @@
 
    
     <div class="container">
+ <div class="display">
     <div class="grid">
     <div></div>
     <div></div>
@@ -213,20 +215,20 @@
     <div></div>
     <div></div>
     <div></div>
-    <div class="taken"></div>
-    <div class="taken"></div>
-    <div class="taken"></div>
-    <div class="taken"></div>
-    <div class="taken"></div>
-    <div class="taken"></div>
-    <div class="taken" ></div>
-    <div class="taken"></div>
-    <div class="taken"></div>
-    <div class="taken"></div>
+    <div class="taken hid"></div>
+    <div class="taken  hid"></div>
+    <div class="taken hid"></div>
+    <div class="taken hid"></div>
+    <div class="taken hid"></div>
+    <div class="taken hid"></div>
+    <div class="taken hid" ></div>
+    <div class="taken hid"></div>
+    <div class="taken hid"></div>
+    <div class="taken hid"></div>
 </div>
 
 
-
+<div class="left">
 <div class="mini-grid">
  <div></div>   
  <div></div>   
@@ -244,11 +246,55 @@
  <div></div>   
  <div></div>   
  <div></div> 
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Next  
+ <div></div> 
+ <div></div> 
+ <div></div> 
+ <div></div> 
+ <div></div> 
+ <div></div> 
+ <div></div> 
+ <div></div> 
+ <div></div> 
+ <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Next   -->
 </div>
 <h3> Score:<span id ="score">0</span></h3>
-<button id="start-button">Start/Pause </button>
+<div class="name">
+    <span class="dot"></span>
+    Classic
+    Tetris
+    <span class="dot"></span>
+    </div></div>
+</div>
+<div class="props">
+<span class="dot small"></span>
+<span class="dot small"></span>
+<span class="dot small"></span>
+  <span class="dot small"></span></div>
+<span class="mid">
+<button id="start-button" class="mid-button">Start </button>
+<button id="pause-button" class="mid-button">Pause </button></span>
 <!-- <button id="start-button">Start/Pause </button> -->
+<div class="controls">
+    <div class="arrows">
+    <button type="button" class="cont_button  cont_style" value="up"></button>
+    <div class="below">
+   <button type="button" class="cont_button  cont_style" value="left"></button>
+   <button type="button" class="cont_button  cont_style" value="down"> </button>
+   <button  type="button" class="cont_button  cont_style" value="right"></button>
+ 
+</div>
+    </div>
+   <div class="X0">
+    <button  class="cont_style hid">.</button>
+  
+  
+   <button type="button" class="cont_style" onclick="location.reload()">O</button>
+   <button type="button" class="cont_button  cont_style" value="up"> X</button>
+   <button class="cont_style hid">.</button>
+</div>
+</div>
+
+<script src="app.js"></script>
 </div>
 </body>
 </html>
